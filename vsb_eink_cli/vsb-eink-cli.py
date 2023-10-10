@@ -5,7 +5,7 @@ from argparse import ArgumentParser, FileType
 from paho.mqtt.client import Client as MQTTClient
 from PIL import Image
 
-from graphics import convert_to_raw_1bpp, convert_to_raw_4bpp, resize_to_inkplate10_size
+from .graphics import convert_to_raw_1bpp, convert_to_raw_4bpp, resize_to_inkplate10_size
 
 
 def on_mqtt_connect(client, userdata, flags, rc):
