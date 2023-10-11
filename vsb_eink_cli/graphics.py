@@ -12,7 +12,7 @@ def resize_to_inkplate10_size(im: Image) -> Image:
 def convert_to_raw_1bpp(im: Image) -> bytes:
     image = im.convert("1", dither=Image.Dither.FLOYDSTEINBERG)
     data = np.array(image.getdata(), dtype=np.uint8)
-    return np.invert(np.packbits(data, bitorder="little")).tobytes()
+    return np.invert(np.packbits(data, bitorder="big")).tobytes()
 
 
 def convert_to_raw_4bpp(im: Image) -> bytes:
