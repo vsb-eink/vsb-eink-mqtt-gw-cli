@@ -19,7 +19,7 @@ def on_mqtt_message(client, userdata, msg):
 def main():
     args_parser = ArgumentParser()
     args_parser.add_argument('input', type=FileType("r+b"), help='path to input file')
-    args_parser.add_argument("--host" "-h", type=str, help="mqtt host to connect to", default="localhost")
+    args_parser.add_argument("--host", type=str, help="mqtt host to connect to", default="localhost")
     args_parser.add_argument("--port", "-p", type=int, help="network port to connect to", default=1883)
     args_parser.add_argument("--mode", choices=["1bpp", "4bpp"], default="1bpp", help="bit depth to convert to")
 
@@ -34,7 +34,7 @@ def main():
     mqtt.on_message = on_mqtt_message
 
     try:
-        mqtt.connect("localhost", 1883)
+        mqtt.connect(args.host, args.port)
         mqtt.loop_start()
     except Exception as err:
         logging.error("Failed to connect to MQTT broker")
