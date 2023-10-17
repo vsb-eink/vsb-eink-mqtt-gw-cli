@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vsb-eink-mqtt-gw-cli"
-version = "1.0.0"
+version = "1.0.1"
 description = ""
 authors = ["Marek Lukáš <tajnymag@gmail.com>"]
 readme = "README.md"
