@@ -6,7 +6,7 @@ INKPLATE_HEIGHT = 825
 
 
 def resize_to_inkplate10_size(im: Image) -> Image:
-    return ImageOps.pad(im, (INKPLATE_WIDTH, INKPLATE_HEIGHT), color="white")
+    return ImageOps.pad(im, (INKPLATE_WIDTH, INKPLATE_HEIGHT), color="white", method=Image.Resampling.NEAREST)
 
 
 def convert_to_raw_1bpp(im: Image) -> bytes:
