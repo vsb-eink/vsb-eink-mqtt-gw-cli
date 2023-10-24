@@ -17,10 +17,10 @@ def convert_to_raw_1bpp(im: Image) -> bytes:
 
 def convert_to_raw_4bpp(im: Image) -> bytes:
     image = im.convert("L")
-    image = ImageOps.invert(image)
     image = image.quantize(8, dither=Image.Dither.FLOYDSTEINBERG)
 
     data = np.array(image.getdata(), dtype=np.uint8)
+    data = 7 - data
     data = np.reshape(data, newshape=(-1, 2))
 
     return np.bitwise_or(np.left_shift(data[:, 0], 4), data[:, 1]).tobytes()
