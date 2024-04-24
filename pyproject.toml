@@ -1,20 +1,23 @@
 [tool.poetry]
 name = "vsb-eink-mqtt-gw-cli"
-version = "1.0.4"
+version = "2.0.0"
 description = ""
-authors = ["Marek Lukáš <tajnymag@gmail.com>"]
+authors = ["Marek Lukáš <luk0125@vsb.cz>"]
 readme = "README.md"
 packages = [{include = "vsb_eink_cli"}]
 
+[tool.poetry.scripts]
+vsb-eink-cli = "vsb_eink_cli.cli:main"
+
 [tool.poetry.dependencies]
 python = ">=3.10"
-pillow = "^10.0.1"
+pillow = "^10.3.0"
 paho-mqtt = "^1.6.1"
-numpy = "^1.26.0"
+numpy = "^1.26.4"
 
 
 [tool.poetry.group.dev.dependencies]
-nuitka = "^1.8.4"
+nuitka = "^2.1.6"
 
 [build-system]
 requires = ["poetry-core"]
